@@ -71,6 +71,51 @@ df.describe()
 ![image](https://github.com/user-attachments/assets/d3535d8b-d4b6-47ac-86fb-2efc4bf1608f)
 
 
+## IQR
+
+```
+import pandas as pd
+import seaborn as sns
+ir=pd.read_csv('/content/iris.csv')
+ir
+```
+![image](https://github.com/user-attachments/assets/eeaf6f67-12fb-4527-a812-8d168593cf7c)
+
+```
+ir.describe()
+```
+![image](https://github.com/user-attachments/assets/cbd1bd2a-7457-48b4-8ee3-0cf1c1288d9a)
+
+```
+sns.boxplot(x='sepal_width',data=ir)
+```
+![image](https://github.com/user-attachments/assets/f761b6c1-61bc-4729-a764-4b02c6188b55)
+
+```
+c1=ir.sepal_width.quantile(0.25)
+c3=ir.sepal_width.quantile(0.75)
+iq=c3-c1
+print(c3)
+```
+![image](https://github.com/user-attachments/assets/3e6d5368-69f7-4a72-a5de-849bce34b1c0)
+
+```
+rid=ir[((ir.sepal_width<(c1-1.5*iq))|(ir.sepal_width>(c3+1.5*iq)))]
+rid['sepal_width']
+```
+![image](https://github.com/user-attachments/assets/48821a98-7f84-4f27-894e-85f21fa5e2ad)
+
+```
+delid=ir[~((ir.sepal_width<(c1-1.5*iq))|(ir.sepal_width>(c3+1.5*iq)))]
+delid
+```
+![image](https://github.com/user-attachments/assets/aab08ed1-dc5e-4200-a3b5-c34ad4451029)
+
+```
+sns.boxplot(x='sepal_width',data=delid)
+```
+![image](https://github.com/user-attachments/assets/f7861390-f4d1-4fad-86b1-6fa54e3e8af3)
+
 
 # Result
           <<include your Result here>>
