@@ -44,8 +44,30 @@ df.isnull()
 ![image](https://github.com/user-attachments/assets/27ee30a7-6856-49e6-b2fb-cadf9ef30de9)
 
 ```
+df.dropna(axis=0)
+```
+![image](https://github.com/user-attachments/assets/0594e09c-018b-4590-b71f-286e64575fd8)
 
 ```
+df.dropna(axis=1)
+```
+![image](https://github.com/user-attachments/assets/7e6db8e7-4c49-468b-88af-345c14b1a231)
+
+```
+df.fillna(0)
+```
+![image](https://github.com/user-attachments/assets/83da199d-69f9-444e-8f14-63ce518800e1)
+
+```
+print(df.shape)
+```
+![image](https://github.com/user-attachments/assets/1a29f35f-98d7-46ee-ac1d-a95f17e95525)
+
+```
+df.describe()
+```
+![image](https://github.com/user-attachments/assets/d3535d8b-d4b6-47ac-86fb-2efc4bf1608f)
+
 
 
 # Result
