@@ -116,6 +116,58 @@ sns.boxplot(x='sepal_width',data=delid)
 ```
 ![image](https://github.com/user-attachments/assets/f7861390-f4d1-4fad-86b1-6fa54e3e8af3)
 
+## Z SQUARE
+
+```
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+import scipy.stats as stats
+dataset=pd.read_csv("/content/heights.csv")
+dataset
+```
+![image](https://github.com/user-attachments/assets/3e2e33c3-21ac-4f2d-af39-8cf467c42a9f)
+
+```
+df = pd.read_csv("heights.csv")
+q1 = df['height'].quantile(0.25)
+q2 = df['height'].quantile(0.5)
+q3 = df['height'].quantile(0.75)
+iqr = q3-q1
+iqr
+```
+![image](https://github.com/user-attachments/assets/e47bf9b7-f54c-49d6-8708-064a370ac080)
+
+```
+low = q1 - 1.5*iqr
+low
+```
+![image](https://github.com/user-attachments/assets/e857bec7-99cd-4929-a46d-9baba634eed2)
+
+```
+high = q3 + 1.5*iqr
+high
+```
+![image](https://github.com/user-attachments/assets/b3eab148-fe33-4d2a-8f10-b5c2159fb50e)
+
+```
+df1 = df[((df['height'] >=low)& (df['height'] <=high))]
+df1
+```
+![image](https://github.com/user-attachments/assets/3f72c2f3-4f99-4dae-a9ac-9e065ee05fd1)
+
+```
+z = np.abs(stats.zscore(df['height']))
+z
+```
+![image](https://github.com/user-attachments/assets/aa950c7e-2f00-44ff-b45a-5263388d2d14)
+
+```
+df1 = df[z<3]
+df1
+```
+![image](https://github.com/user-attachments/assets/7c32bcea-ed19-436c-836f-51add2f0f875)
+
 
 # Result
-          <<include your Result here>>
+Thus the Data Cleaning Process and Detecting and Removal of Outliers is executed successfully.
